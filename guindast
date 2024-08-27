@@ -1,0 +1,46 @@
+
+#define pinServ4 5 
+
+//define as portas do potenciometros
+#define port1 A0
+#define port2 A1
+#define port3 A2
+#define port4 A3
+
+//nomeia os servos
+Servo serv1, serv2, serv3, serv4;
+
+//cria as variaveis dos angulos de cada motor 
+int motor1, motor2, motor3, motor4;
+
+unsigned long mostradorTimer = 1;
+const unsigned long intervaloMostrador = 1000;
+
+void setup() {
+
+//inicia o monitor serial
+Serial.begin(9600);
+
+//atribui pinos dos servos
+serv1.attach(pinServ1);
+serv2.attach(pinServ2);
+serv3.attach(pinServ3);
+serv4.attach(pinServ4);
+
+}
+
+void loop(){
+//leitura dos potenciometros
+motor1 = map(analogRead(port1),0,1023,0,180);
+motor2 = map(analogRead(port2),0,1023,0,180);
+motor3 = map(analogRead(port3),0,1023,0,180);
+motor4 = map(analogRead(port4),0,1023,0,180);
+
+/posicionamento dos potenciometros
+serv1.write(motor1);
+serv2.write(motor2);
+serv3.write(motor3);
+serv4.write(motor4);
+
+
+
