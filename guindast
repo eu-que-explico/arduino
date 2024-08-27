@@ -42,5 +42,9 @@ serv2.write(motor2);
 serv3.write(motor3);
 serv4.write(motor4);
 
+if((millis() = mostradorTimer) >= intervaloMostrador
+
+
+
 
 
